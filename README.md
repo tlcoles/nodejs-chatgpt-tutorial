@@ -50,6 +50,6 @@ As befitting the tutorial, this repository and this README were enhanced by quer
 
 ## Contact
 
-Tammi L. Coles
-Berlin, Germany
+Tammi L. Coles  
+Berlin, Germany  
 Social media: @tlcoles 
