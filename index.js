@@ -13,20 +13,39 @@ const userInterface = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
 });
+const exitCommands = ["exit", "quit"]; // Define exit commands here
+
+function isExitCommand(input) {
+  return exitCommands.includes(input.toLowerCase().trim());
+}
+
+function closeChat() {
+  console.log("Chat ended. Goodbye!");
+  userInterface.close();
+  process.exit(0);
+}
 
 userInterface.prompt();
 
 userInterface.on("line", async (input) => {
-    await openai
-    .createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: input }],
-    })
-    .then((res) => {
+    if (isExitCommand(input)) {
+        closeChat(); // Only close the chat if the user types an exit command
+        return;
+      }
+    try {
+        const res = await openai
+            .createChatCompletion({
+                model: "gpt-3.5-turbo",
+                messages: [{ role: "user", content: input }],
+            });
         console.log("AI: ", res.data.choices[0].message.content);
-        userInterface.prompt();
-    })
-    .catch((e) => {
+    } catch(e) {
         console.log(e);
-    });
+    }
+
+    userInterface.prompt();
+});
+    
+userInterface.on("close", () => {
+    process.exit(0); // Simply exit the process when the user closes the chat interface
 });
