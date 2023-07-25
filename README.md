@@ -1,4 +1,4 @@
-# Interactive Chat with GPT-3.5-turbo and Node.js
+# Interactive chat with GPT-3.5-turbo and Node.js
 
 Based on the [FreeCodeCamp tutorial](https://www.freecodecamp.org/news/how-to-build-a-chatbot-with-openai-chatgpt-nodejs-and-react/) created by Njoku Samson Ebere [(@eberegit)](https://github.com/EBEREGIT), this repository contains a simple Node.js application that allows you to have an interactive chat with the GPT-3.5-turbo model using the OpenAI API. The chat takes place in the terminal, where you can act as a user and converse with the AI model.
 
