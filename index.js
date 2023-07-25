@@ -13,7 +13,7 @@ const userInterface = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
 });
-const exitCommands = ["exit", "quit"]; // Define exit commands here
+const exitCommands = ["exit", "quit", "goodbye"]; // Define exit commands here
 
 function isExitCommand(input) {
   return exitCommands.includes(input.toLowerCase().trim());
@@ -26,6 +26,8 @@ function closeChat() {
 }
 
 userInterface.prompt();
+
+console.log("Ready. Send HELLO to begin the chat GOODBYE to stop.");
 
 userInterface.on("line", async (input) => {
     if (isExitCommand(input)) {
